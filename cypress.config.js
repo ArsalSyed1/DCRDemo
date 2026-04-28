@@ -15,6 +15,7 @@ module.exports = defineConfig({
     viewportWidth: 1920,
     viewportHeight: 1200,
     pageLoadTimeout: 100000,
+    defaultCommandTimeout: 10000,
 
     setupNodeEvents(on, config) {
       const logsPath = path.join(__dirname, 'logs');
