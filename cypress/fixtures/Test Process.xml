@@ -1,0 +1,111 @@
+<dcrgraph title="Test Process" dataTypesStatus="hide" filterLevel="-1" insightFilter="false" zoomLevel="0" formGroupStyle="Normal" formLayoutStyle="Horizontal" formShowPendingCount="true" graphBG="#f1f6fe" graphType="0" exercise="false" version="1.1">
+    <meta>
+        <graph id="1933883" hash="F0F80F746ABBABF61D52A8F02BD31D14" guid="753AF7D1-1F57-41C4-B91C-8C33F86C7C5C" OwnerName="Uziar khan" OwnerId="150410" categoryId="10787" categoryTitle="7.2.1 test" Keywords="uzair"/>
+        <revision id="1598512" type="medium" date="2025-03-17T11:24:10.777"/>
+        <organization id="12" name="DCR Solutions Test"/>
+    </meta>
+    <specification>
+        <resources>
+            <events>
+                <event id="Activity0">
+                    <precondition message=""/>
+                    <custom>
+                        <visualization>
+                            <location xLoc="250" yLoc="25"/>
+                            <colors bg="#f9f7ed" textStroke="#000000" stroke="#cccccc"/>
+                        </visualization>
+                        <roles>
+                            <role/>
+                        </roles>
+                        <readRoles>
+                            <readRole/>
+                        </readRoles>
+                        <groups>
+                            <group/>
+                        </groups>
+                        <phases>
+                            <phase/>
+                        </phases>
+                        <eventType/>
+                        <eventScope>private</eventScope>
+                        <eventTypeData/>
+                        <eventDescription/>
+                        <purpose/>
+                        <guide/>
+                        <insight use="false"/>
+                        <level>1</level>
+                        <sequence>1</sequence>
+                        <costs>0</costs>
+                        <eventData/>
+                        <interfaces/>
+                    </custom>
+                </event>
+            </events>
+            <subProcesses/>
+            <distribution/>
+            <labels>
+                <label id="Activity0"/>
+            </labels>
+            <labelMappings>
+                <labelMapping eventId="Activity0" labelId="Activity0"/>
+            </labelMappings>
+            <expressions/>
+            <variables/>
+            <variableAccesses>
+                <writeAccesses/>
+            </variableAccesses>
+            <custom>
+                <keywords>uzair</keywords>
+                <roles>
+                    <role description="" specification="">test 123</role>
+                </roles>
+                <groups/>
+                <phases/>
+                <eventTypes/>
+                <eventParameters/>
+                <graphDetails>DCR Process</graphDetails>
+                <graphDocumentation/>
+                <graphLanguage>da-DK</graphLanguage>
+                <graphDomain>standard</graphDomain>
+                <graphFilters>
+                    <filteredGroups/>
+                    <filteredRoles/>
+                    <filteredPhases/>
+                </graphFilters>
+                <hightlighterMarkup id="HLM"/>
+                <highlighterMarkup>
+                    <highlightLayers>
+                        <highlightLayer default="true" name="description">
+                            <![CDATA[DCR Process]]>
+                        </highlightLayer>
+                    </highlightLayers>
+                    <highlights/>
+                </highlighterMarkup>
+            </custom>
+        </resources>
+        <constraints>
+            <conditions/>
+            <responses/>
+            <coresponses/>
+            <excludes/>
+            <includes/>
+            <milestones/>
+            <updates/>
+            <spawns/>
+            <templateSpawns/>
+        </constraints>
+    </specification>
+    <runtime>
+        <custom>
+            <globalMarking/>
+        </custom>
+        <marking>
+            <globalStore/>
+            <executed/>
+            <included>
+                <event id="Activity0"/>
+            </included>
+            <pendingResponses/>
+        </marking>
+    </runtime>
+</dcrgraph>

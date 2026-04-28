@@ -1,0 +1,86 @@
+pool:
+  name: 'E2E_DcrSolutions'
+  demands:
+    - DCR-DK -equals true
+
+parameters:
+- name: environment
+  displayName: "Environment to run Cypress"
+  type: string
+  default: 'Test'
+  values:
+  - Test
+  - Demo
+  - Prod1
+  - Prod2
+
+- name: useAuthHub
+  displayName: "Use AuthHub"
+  type: boolean
+  default: false
+
+variables:
+- name: System.Debug
+  value: true
+
+# Map environment parameter to actual ENV value
+- name: CypressEnv
+  ${{ if eq(parameters.environment, 'Test') }}:
+    value: 'test'
+  ${{ if eq(parameters.environment, 'Demo') }}:
+    value: 'demo'
+  ${{ if eq(parameters.environment, 'Prod1') }}:
+    value: 'prodIIS01'
+  ${{ if eq(parameters.environment, 'Prod2') }}:
+    value: 'prodIIS02'
+
+# Convert boolean to string true/false
+- name: UseAuthHubLogin
+  ${{ if eq(parameters.useAuthHub, true) }}:
+    value: 'true'
+  ${{ if eq(parameters.useAuthHub, false) }}:
+    value: 'false'
+
+# Final Cypress command
+- name: RunCypressScript
+  value: 'npx cypress run --env ENV=$(CypressEnv),USE_AUTHHUB_LOGIN=$(UseAuthHubLogin)'
+
+steps:
+- task: NodeTool@0
+  displayName: 'Use Node 20.19.1'
+  inputs:
+    versionSpec: 20.19.1
+
+- script: 'npm install --loglevel verbose'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/'
+  displayName: 'Install node modules'
+
+- script: $(RunCypressScript)
+  workingDirectory: '$(System.DefaultWorkingDirectory)/'
+  displayName: 'Run Cypress (${{ parameters.environment }})'
+  continueOnError: true
+  timeoutInMinutes: 90
+  env:
+    LOG_LEVEL: verbose
+    CYPRESS_LOG_LEVEL: verbose
+
+- script: |
+    files=$(find cypress/results -name "*.xml")
+    npx junit-merge $files -o cypress/results/report.xml
+  workingDirectory: '$(System.DefaultWorkingDirectory)'
+  displayName: 'Merge JUnit XML Reports'
+
+- script: 'node merge-logs.js'
+  workingDirectory: '$(System.DefaultWorkingDirectory)/'
+  displayName: 'Cypress Report Generate'
+  continueOnError: true
+  condition: succeededOrFailed()
+
+- task: PublishTestResults@2
+  displayName: 'Publish Test Results **/report.xml'
+  inputs:
+    testResultsFiles: '**/report.xml'
+    mergeTestResults: true
+    testRunTitle: 'E2E Test'
+  continueOnError: true
+  condition: succeededOrFailed()
