@@ -23,7 +23,18 @@ import 'cypress-file-upload';
 beforeEach(() => {
   cy.clearCookies();
   cy.clearLocalStorage();
-  cy.window().then((win) => win.sessionStorage.clear());
+  cy.window().then((win) => {
+    win.sessionStorage.clear();
+    if (win.indexedDB && typeof win.indexedDB.databases === 'function') {
+      win.indexedDB.databases().then((dbs) => {
+        dbs.forEach((db) => {
+          if (db.name) {
+            win.indexedDB.deleteDatabase(db.name);
+          }
+        });
+      });
+    }
+  });
 });
 
 afterEach(function () {
