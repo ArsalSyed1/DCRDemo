@@ -9,49 +9,48 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
   const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
   cy.log("Using AuthHub login:", useAuthHubLogin);
 
-  cy.session(`${username}-${orgName}-${Cypress.spec.name}`, () => {
-    if (useAuthHubLogin) {
-      // AuthHub flow
-      return tests
-        .visitpage()
-        .then(() => {
-          return tests.Auth_hub_Username(username);
-        })
-        .then(() => {
-          return tests.Auth_hub_Continue();
-        })
-        .then(() => {
-          return tests.Auth_hub_Password(password);
-        })
-        .then(() => {
-          return tests.Auth_hub_LoginButton();
-        }).then(() => {
-          return tests.switchOrganization(orgName);
-        });
-    } else {
-      // Legacy login flow
-      return tests
-        .visitpage()
-        .then(() => {
-          return tests.Username(username);
-        })
-        .then(() => {
-          return tests.VerifyUsername(username);
-        })
-        .then(() => {
-          return tests.Password(password);
-        })
-        .then(() => {
-          return tests.VerifyPassword(password);
-        })
-        .then(() => {
-          return tests.ClickonLoginButton();
-        })
-        .then(() => {
-          return tests.switchOrganization(orgName);
-        });
-    }
-  });
+  // No session caching - perform fresh login every time
+  if (useAuthHubLogin) {
+    // AuthHub flow
+    return tests
+      .visitpage()
+      .then(() => {
+        return tests.Auth_hub_Username(username);
+      })
+      .then(() => {
+        return tests.Auth_hub_Continue();
+      })
+      .then(() => {
+        return tests.Auth_hub_Password(password);
+      })
+      .then(() => {
+        return tests.Auth_hub_LoginButton();
+      }).then(() => {
+        return tests.switchOrganization(orgName);
+      });
+  } else {
+    // Legacy login flow
+    return tests
+      .visitpage()
+      .then(() => {
+        return tests.Username(username);
+      })
+      .then(() => {
+        return tests.VerifyUsername(username);
+      })
+      .then(() => {
+        return tests.Password(password);
+      })
+      .then(() => {
+        return tests.VerifyPassword(password);
+      })
+      .then(() => {
+        return tests.ClickonLoginButton();
+      })
+      .then(() => {
+        return tests.switchOrganization(orgName);
+      });
+  }
 });
 
 Cypress.Commands.add("logMemoryUsage", () => {
