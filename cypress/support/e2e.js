@@ -19,7 +19,7 @@ import '@shelex/cypress-allure-plugin';
 import 'cypress-file-upload';
 
 beforeEach(() => {
-  cy.clearCookies({ domain: null });
+  cy.clearCookies();
   cy.clearLocalStorage();
   cy.window().then((win) => win.sessionStorage.clear());
 });
