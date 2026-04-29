@@ -18,6 +18,12 @@ import './commands'
 import '@shelex/cypress-allure-plugin';
 import 'cypress-file-upload';
 
+beforeEach(() => {
+  cy.clearCookies({ domain: null });
+  cy.clearLocalStorage();
+  cy.window().then((win) => win.sessionStorage.clear());
+});
+
 afterEach(function () {
   if (this.currentTest.state === 'skipped') {
     console.warn('❌ Skipped test:', this.currentTest.title);
