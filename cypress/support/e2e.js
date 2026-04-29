@@ -20,7 +20,7 @@ import 'cypress-file-upload';
 
  
 
-beforeEach(() => {
+before(() => {
   cy.clearCookies();
   cy.clearLocalStorage();
   cy.window().then((win) => {

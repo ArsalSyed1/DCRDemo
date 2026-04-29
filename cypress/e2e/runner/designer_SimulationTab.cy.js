@@ -4,7 +4,7 @@ import config from "../../configuration/config.json";
 const { password, username } = config;
 
 describe("Simulation Menu ", () => {
-  beforeEach(() => {
+  before(() => {
     const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
     cy.log("Using AuthHub login:", useAuthHubLogin);
 

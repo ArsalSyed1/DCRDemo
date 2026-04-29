@@ -4,7 +4,7 @@ import config from "../../configuration/config.json";
 const { username, password } = config;
 
 describe(" designer menu & insert Tab", () => {
-  beforeEach(() => {
+  before(() => {
     cy.loginWithSession(username, password, "DCR Solutions Test");
   });
   describe("0066: Verify the File Menu buttons functionality", () => {

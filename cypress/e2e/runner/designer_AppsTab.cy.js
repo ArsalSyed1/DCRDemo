@@ -4,7 +4,7 @@ const { password, username } = config;
 
 describe('Apps tab Menu ', () => {
 
-  beforeEach(() => {  
+  before(() => {  
     cy.clearCookies(); // optional, to avoid conflicts
     cy.loginWithSession(username, password, 'DCR Solutions Test');
     cy.log('Logged in via session:', `${username}-DCR Solutions Test-${Cypress.spec.name}`);
