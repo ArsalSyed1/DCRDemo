@@ -5,6 +5,24 @@ import tests from "../e2e/imports/imports";
 
 require("@4tw/cypress-drag-drop");
 
+Cypress.Commands.overwrite("visit", (originalFn, url, options = {}) => {
+  const onBeforeLoad = (win) => {
+    const origOpen = win.XMLHttpRequest.prototype.open;
+    win.XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
+      if (async === false) {
+        async = true;
+      }
+      return origOpen.call(this, method, url, async, user, password);
+    };
+
+    if (options.onBeforeLoad) {
+      return options.onBeforeLoad(win);
+    }
+  };
+
+  return originalFn(url, { ...options, onBeforeLoad });
+});
+
 Cypress.Commands.add("loginWithSession1", (username, password, orgName) => {
   const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
   cy.log("Using AuthHub login:", useAuthHubLogin);
