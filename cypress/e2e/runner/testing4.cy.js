@@ -4,8 +4,8 @@ import config from "../../configuration/config.json";
 const { username, password, username_2, password_2 } = config;
 
 describe("testing 4 ", () => {
-  before(() => {
-    cy.clearCookies(); // optional, to avoid conflicts
+  beforeEach(() => {
+    //cy.clearCookies(); // optional, to avoid conflicts
 
     cy.loginWithSession(username, password, "DCR Solutions Test");
     cy.log(

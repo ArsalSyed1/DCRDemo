@@ -5,7 +5,7 @@ import tests from "../e2e/imports/imports";
 
 require("@4tw/cypress-drag-drop");
 
-Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
+Cypress.Commands.add("loginWithSession1", (username, password, orgName) => {
   const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
   cy.log("Using AuthHub login:", useAuthHubLogin);
 
@@ -56,6 +56,58 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
 Cypress.Commands.add("logMemoryUsage", () => {
   const memoryUsage = process.memoryUsage();
   console.log("Memory Usage:", memoryUsage);
+});
+
+
+
+
+Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
+  const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
+  cy.log("Using AuthHub login:", useAuthHubLogin);
+
+  cy.session(`${username}-${orgName}-${Cypress.spec.name}`, () => {
+    if (useAuthHubLogin) {
+      // AuthHub flow
+      return tests
+        .visitpage()
+        .then(() => {
+          return tests.Auth_hub_Username(username);
+        })
+        .then(() => {
+          return tests.Auth_hub_Continue();
+        })
+        .then(() => {
+          return tests.Auth_hub_Password(password);
+        })
+        .then(() => {
+          return tests.Auth_hub_LoginButton();
+        }).then(() => {
+          return tests.switchOrganization(orgName);
+        });
+    } else {
+      // Legacy login flow
+      return tests
+        .visitpage()
+        .then(() => {
+          return tests.Username(username);
+        })
+        .then(() => {
+          return tests.VerifyUsername(username);
+        })
+        .then(() => {
+          return tests.Password(password);
+        })
+        .then(() => {
+          return tests.VerifyPassword(password);
+        })
+        .then(() => {
+          return tests.ClickonLoginButton();
+        })
+        .then(() => {
+          return tests.switchOrganization(orgName);
+        });
+    }
+  });
 });
 
 

@@ -20,7 +20,7 @@ import 'cypress-file-upload';
 
  
 
-before(() => {
+/*beforeEach(() => {
   cy.clearCookies();
   cy.clearLocalStorage();
   cy.window().then((win) => {
@@ -35,7 +35,10 @@ before(() => {
       });
     }
   });
-});
+
+  // Light app refresh - navigate to home or reload
+  cy.visit('/'); // or cy.reload(true) if needed
+});*/
 
 afterEach(function () {
   if (this.currentTest.state === 'skipped') {

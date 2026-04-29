@@ -5,8 +5,8 @@ const { password, username } = config;
 
 describe('Help tab Menu ', () => {
 
-    before(() => {
-        cy.clearCookies(); // optional, to avoid conflicts
+    beforeEach(() => {
+       // cy.clearCookies(); // optional, to avoid conflicts
         cy.loginWithSession(username, password, 'DCR Solutions Test');
         tests.open_the_graph('graph_id_1');
         tests.Click_On_Help_tab();

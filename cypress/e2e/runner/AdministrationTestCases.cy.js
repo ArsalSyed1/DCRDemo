@@ -3,8 +3,18 @@ import config from "../../configuration/config.json";
 const { password, username } = config;
 
 describe("Administration ", () => {
-  before(() => {
+/*before(() => {
     cy.clearCookies(); // optional, to avoid conflicts
+    cy.loginWithSession1(username, password, "DCR Solutions Test");
+    cy.log(
+      "Logged in via session:",
+      `${username}-DCR Solutions Test-${Cypress.spec.name}`
+    );
+  });*/
+
+
+  beforeEach(() => {
+    //cy.clearCookies(); // optional, to avoid conflicts
     cy.loginWithSession(username, password, "DCR Solutions Test");
     cy.log(
       "Logged in via session:",

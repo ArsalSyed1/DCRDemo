@@ -4,8 +4,8 @@ import config from "../../configuration/config.json";
 const { username, password, username_2, password_2 } = config;
 
 describe(" Community Organization ", () => {
-  before(() => {
-    cy.clearCookies(); // optional, to avoid conflicts
+  beforeEach(() => {
+    //cy.clearCookies(); // optional, to avoid conflicts
     cy.loginWithSession(username_2, password, " Community");
     cy.log(
       "Logged in via session:",
