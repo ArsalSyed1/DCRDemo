@@ -5,7 +5,7 @@ const { username, password } = config;
 
 describe("testing 1", () => {
   beforeEach(() => {
-   // cy.clearCookies(); // optional, to avoid conflicts
+    cy.clearCookies(); // optional, to avoid conflicts
 
     cy.loginWithSession(username, password, "DCR Solutions Test");
     cy.log(
@@ -38,7 +38,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.clickonapp();
         })
         .then(() => {
@@ -56,7 +58,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -73,7 +77,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -87,7 +93,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -138,7 +146,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -156,7 +166,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -176,7 +188,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -202,7 +216,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -229,7 +245,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -267,7 +285,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.clickonSimulationdropdown();
         })
         .then(() => {
@@ -288,7 +308,9 @@ describe("testing 1", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.onlySearch();
         })
         .then(() => {
@@ -310,7 +332,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.clickonSimulationdropdown();
         })
         .then(() => {
@@ -330,7 +354,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -359,7 +385,9 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.wait(2000);
           cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
