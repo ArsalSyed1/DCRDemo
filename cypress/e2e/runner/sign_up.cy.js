@@ -30,6 +30,7 @@ describe("0008: Verify the functionality of Signup by Signup new user.", () => {
   describe("0090:Verify the Forgot Password Functionality.", () => {
     it(" Verify the Forgot Password Functionality.", function () {
       return tests.visitpage().then(() => {
+        cy.reload(true);
         return tests.Forgotpassword();
       });
     });
@@ -45,6 +46,7 @@ describe("0091:Verify the Change Password Functionality..", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.Auth_hub_Username(username);
         })
         .then(() => {
@@ -67,6 +69,7 @@ describe("0091:Verify the Change Password Functionality..", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.Username(username);
         })
         .then(() => {

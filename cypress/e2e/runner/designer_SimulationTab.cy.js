@@ -4,7 +4,7 @@ import config from "../../configuration/config.json";
 const { password, username } = config;
 
 describe("Simulation Menu ", () => {
-  before(() => {
+  beforeEach(() => {
     const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
     cy.log("Using AuthHub login:", useAuthHubLogin);
 
@@ -13,6 +13,7 @@ describe("Simulation Menu ", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.clickonSimulationdropdown();
         })
         .then(() => {
@@ -26,6 +27,7 @@ describe("Simulation Menu ", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.clickonSimulationdropdown();
         })
         .then(() => {
@@ -70,6 +72,7 @@ describe("0073: Verify the Revision History Functionaltiy.", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.Auth_hub_Username(username);
         })
         .then(() => {
@@ -85,12 +88,14 @@ describe("0073: Verify the Revision History Functionaltiy.", () => {
           return tests.open_the_graph("graph_id_10");
         })
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Revision_History();
         });
     } else {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.Username(username);
         })
         .then(() => {
@@ -103,6 +108,7 @@ describe("0073: Verify the Revision History Functionaltiy.", () => {
           return tests.open_the_graph("graph_id_10");
         })
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Revision_History();
         });
     }
@@ -121,6 +127,7 @@ describe("0074: Verify the Revert Graph Functionlity in revision History.", () =
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.Auth_hub_Username(username);
         })
         .then(() => {
@@ -145,6 +152,7 @@ describe("0074: Verify the Revert Graph Functionlity in revision History.", () =
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.Username(username);
         })
         .then(() => {
@@ -157,6 +165,7 @@ describe("0074: Verify the Revert Graph Functionlity in revision History.", () =
           return tests.open_the_graph("graph_id_10");
         })
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Revision_History();
         })
         .then(() => {

@@ -12,6 +12,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_File_tab();
         })
         .then(() => {
@@ -22,6 +23,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_File_tab();
         })
         .then(() => {
@@ -38,6 +40,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_File_tab();
         })
         .then(() => {
@@ -49,6 +52,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_File_tab();
         })
         .then(() => {
@@ -59,6 +63,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_File_tab();
         })
         .then(() => {
@@ -69,6 +74,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_File_tab();
         })
         .then(() => {
@@ -79,6 +85,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_File_tab();
         })
         .then(() => {
@@ -92,6 +99,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Insert_tab();
         })
         .then(() => {
@@ -102,6 +110,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Insert_tab();
         })
         .then(() => {
@@ -112,6 +121,7 @@ describe(" designer menu & insert Tab", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Insert_tab();
         })
         .then(() => {

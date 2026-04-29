@@ -5,7 +5,7 @@ const { username, password } = config;
 
 describe("testing 3", () => {
   beforeEach(() => {
-    //cy.clearCookies(); // optional, to avoid conflicts
+    cy.clearCookies(); // optional, to avoid conflicts
 
     cy.loginWithSession(username, password, "DCR Solutions Test");
     cy.log(
@@ -20,6 +20,7 @@ describe("testing 3", () => {
         tests
           .open_the_graph("graph_id_8")
           .then(() => {
+            cy.reload(true);
             return tests.Click_On_Simulate_Button();
           })
           .then(() => {
@@ -67,6 +68,7 @@ describe("testing 3", () => {
       return tests
         .open_the_graph("graph_id_5")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -114,6 +116,7 @@ describe("testing 3", () => {
       return tests
         .open_the_graph("graph_id_5")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -138,6 +141,7 @@ describe("testing 3", () => {
       return tests
         .open_the_graph("graph_id_5")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -162,6 +166,7 @@ describe("testing 3", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.open_the_graph("graph_id_6");
         })
         .then(() => {
@@ -190,6 +195,7 @@ describe("testing 3", () => {
       return tests
         .open_the_graph("graph_id_6")
         .then(() => {
+          cy.reload(true);
           console.log("0040A");
           return tests.Click_On_Simulate_Button();
         })
@@ -240,6 +246,7 @@ describe("testing 3", () => {
       return tests
         .open_the_graph("graph_id_6")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -281,6 +288,7 @@ describe("testing 3", () => {
         tests
           .open_the_graph("graph_id_8")
           .then(() => {
+            cy.reload(true);
             return tests.Edit_process_title();
           })
           .then(() => {
@@ -308,6 +316,7 @@ describe("testing 3", () => {
       return tests
         .open_the_graph("graph_id_8")
         .then(() => {
+          cy.reload(true);
           return tests.Edit_process_title();
         })
         .then(() => {
@@ -330,6 +339,7 @@ describe("testing 3", () => {
       return tests
         .open_the_graph("graph_id_8")
         .then(() => {
+          cy.reload(true);
           return tests.Edit_process_title();
         })
         .then(() => {

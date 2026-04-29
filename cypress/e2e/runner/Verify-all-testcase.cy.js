@@ -5,7 +5,7 @@ const { username, password, username_2, password_2 } = config;
 
 describe("Verify all testcase", () => {
   beforeEach(() => {
-    //cy.clearCookies(); // optional, to avoid conflicts
+    cy.clearCookies(); // optional, to avoid conflicts
 
     cy.loginWithSession(username, password, "DCR Solutions Test");
     cy.log(
@@ -20,6 +20,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.createprocesspage();
         })
         .then(() => {
@@ -35,7 +36,6 @@ describe("Verify all testcase", () => {
           return tests.Click_on_Start_Simulation_Button();
         });
     });
-    Cypress.env('USE_AUTHHUB_LOGIN', false);
   });
   describe("0049:Verify the swimlanes (scenarios) functionality from dashboard for old simulations", () => {
     it("Verify the swimlanes (scenarios) functionality from dashboard for old simulations", function () {
@@ -43,6 +43,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.onlySearch();
         })
         .then(() => {
@@ -56,6 +57,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.onlySearch();
         })
         .then(() => {
@@ -75,6 +77,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.open_the_graph("graph_id_1");
         })
         .then(() => {
@@ -109,6 +112,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.open_the_graph("graph_id_1");
         })
         .then(() => {
@@ -137,6 +141,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.onlySearch();
         })
         .then(() => {
@@ -166,6 +171,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.onlySearch();
         })
         .then(() => {
@@ -188,6 +194,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.onlySearch();
         })
         .then(() => {
@@ -214,6 +221,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.open_the_graph("graph_id_1");
         })
         .then(() => {
@@ -245,6 +253,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.createprocesspage();
         })
 
@@ -265,6 +274,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.createprocesspage();
         })
         .then(() => {
@@ -282,6 +292,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.createprocesspage();
         })
         .then(() => {
@@ -304,6 +315,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.click_on_Category();
         })
         .then(() => {
@@ -326,6 +338,7 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.ScrollInto("Public category");
         })
         .then(() => {
@@ -346,6 +359,7 @@ describe("Verify all testcase", () => {
       return tests
         .open_the_graph("graph_id_17")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -376,9 +390,11 @@ describe("Verify all testcase", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.open_the_graph("graph_id_11");
         })
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {

@@ -38,6 +38,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.clickonapp();
         })
         .then(() => {
@@ -55,6 +56,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -71,6 +73,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -84,6 +87,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -134,6 +138,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -151,6 +156,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -170,6 +176,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -195,6 +202,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -221,6 +229,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -258,6 +267,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.clickonSimulationdropdown();
         })
         .then(() => {
@@ -278,6 +288,7 @@ describe("testing 1", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.reload(true);
           return tests.onlySearch();
         })
         .then(() => {
@@ -299,6 +310,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.clickonSimulationdropdown();
         })
         .then(() => {
@@ -318,6 +330,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -346,6 +359,7 @@ describe("testing 1", () => {
       return tests
         .open_the_graph("graph_id_1")
         .then(() => {
+          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
