@@ -48,6 +48,7 @@ describe("DCR Test Organization ", () => {
           return tests.clickOnExecuteButton("Activity29");
         });
     });
+    Cypress.env('USE_AUTHHUB_LOGIN', false);
   });
   describe("0077: Verify the Nested Processes in Graph - https://www.dcrgraphs.net:42443/Tool?id=1039368, https://wwwdemo.dcrgraphs.net:43443/Tool?id=1484327", () => {
     it("Verify the Nested Processes in Graph", function () {

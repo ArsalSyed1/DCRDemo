@@ -35,6 +35,7 @@ describe("Verify all testcase", () => {
           return tests.Click_on_Start_Simulation_Button();
         });
     });
+    Cypress.env('USE_AUTHHUB_LOGIN', false);
   });
   describe("0049:Verify the swimlanes (scenarios) functionality from dashboard for old simulations", () => {
     it("Verify the swimlanes (scenarios) functionality from dashboard for old simulations", function () {
