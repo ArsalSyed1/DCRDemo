@@ -18,19 +18,13 @@ import './commands'
 import '@shelex/cypress-allure-plugin';
 import 'cypress-file-upload';
 
-  beforeEach(() => {  
-    cy.clearCookies(); // optional, to avoid conflicts
-    cy.clearLocalStorage();
-    cy.window().then((win) => win.sessionStorage.clear());
-    cy.loginWithSession(username, password, 'DCR Solutions Test');
-    cy.log('Logged in via session:', `${username}-DCR Solutions Test-${Cypress.spec.name}`);
-  });
+ 
 
-/*beforeEach(() => {
+beforeEach(() => {
   cy.clearCookies();
   cy.clearLocalStorage();
   cy.window().then((win) => win.sessionStorage.clear());
-});*/
+});
 
 afterEach(function () {
   if (this.currentTest.state === 'skipped') {
