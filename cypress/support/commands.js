@@ -5,24 +5,6 @@ import tests from "../e2e/imports/imports";
 
 require("@4tw/cypress-drag-drop");
 
-Cypress.Commands.overwrite("visit", (originalFn, url, options = {}) => {
-  const onBeforeLoad = (win) => {
-    const origOpen = win.XMLHttpRequest.prototype.open;
-    win.XMLHttpRequest.prototype.open = function(method, url, async, user, password) {
-      if (async === false) {
-        async = true;
-      }
-      return origOpen.call(this, method, url, async, user, password);
-    };
-
-    if (options.onBeforeLoad) {
-      return options.onBeforeLoad(win);
-    }
-  };
-
-  return originalFn(url, { ...options, onBeforeLoad });
-});
-
 Cypress.Commands.add("loginWithSession1", (username, password, orgName) => {
   const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
   cy.log("Using AuthHub login:", useAuthHubLogin);
@@ -83,9 +65,9 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
   const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
   cy.log("Using AuthHub login:", useAuthHubLogin);
 
-  cy.session(`${username}-${orgName}-${Cypress.spec.name}`, () => {
-    if (useAuthHubLogin) {
-      // AuthHub flow
+  if (useAuthHubLogin) {
+    console.log("AUTHIF");
+    return cy.session(`${username}-${orgName}-${Cypress.spec.name}`, () => {
       return tests
         .visitpage()
         .then(() => {
@@ -99,33 +81,35 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
         })
         .then(() => {
           return tests.Auth_hub_LoginButton();
-        }).then(() => {
-          return tests.switchOrganization(orgName);
-        });
-    } else {
-      // Legacy login flow
-      return tests
-        .visitpage()
-        .then(() => {
-          return tests.Username(username);
-        })
-        .then(() => {
-          return tests.VerifyUsername(username);
-        })
-        .then(() => {
-          return tests.Password(password);
-        })
-        .then(() => {
-          return tests.VerifyPassword(password);
-        })
-        .then(() => {
-          return tests.ClickonLoginButton();
         })
         .then(() => {
           return tests.switchOrganization(orgName);
         });
-    }
-  });
+    });
+  }
+
+  // Legacy login flow: no session cache, always perform fresh login
+  console.log("AUTHELSE");
+  return tests
+    .visitpage()
+    .then(() => {
+      return tests.Username(username);
+    })
+    .then(() => {
+      return tests.VerifyUsername(username);
+    })
+    .then(() => {
+      return tests.Password(password);
+    })
+    .then(() => {
+      return tests.VerifyPassword(password);
+    })
+    .then(() => {
+      return tests.ClickonLoginButton();
+    })
+    .then(() => {
+      return tests.switchOrganization(orgName);
+    });
 });
 
 

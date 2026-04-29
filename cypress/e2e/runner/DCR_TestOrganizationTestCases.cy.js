@@ -48,7 +48,7 @@ describe("DCR Test Organization ", () => {
           return tests.clickOnExecuteButton("Activity29");
         });
     });
-    Cypress.env('USE_AUTHHUB_LOGIN', false);
+   
   });
   describe("0077: Verify the Nested Processes in Graph - https://www.dcrgraphs.net:42443/Tool?id=1039368, https://wwwdemo.dcrgraphs.net:43443/Tool?id=1484327", () => {
     it("Verify the Nested Processes in Graph", function () {
@@ -85,9 +85,12 @@ describe("DCR Test Organization ", () => {
           return tests.clickOnExecuteButton("Activity28");
         });
     });
+     
   });
   describe("0121:Test rules wizard - https://wwwdemo.dcrgraphs.net:43443/Tool?id=1012403, https://www.dcrgraphs.net:42443/Tool?id=1480498", () => {
     it("Test rules wizard", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
+      console.log('USE_AUTHHUB_LOGIN', Cypress.env('USE_AUTHHUB_LOGIN'));
       return tests
         .open_the_graph("graph_id_23")
         .then(() => {
@@ -112,6 +115,7 @@ describe("DCR Test Organization ", () => {
 
   describe("0124:Test spawn in subgraph . https://www.dcrgraphs.net:41443/Tool?id=1480366, https://wwwtest.dcrgraphs.net:43443/Tool?id=1484765", () => {
     it("Test spawn in subgraph", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_15")
         .then(() => {
@@ -127,6 +131,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0126:Test DMN with multiple outputs - https://wwwdemo.dcrgraphs.net:43443/Tool?id=1491031#, https://www.dcrgraphs.net:41443/Tool?id=1705077", () => {
     it("Test DMN with multiple outputs", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_16")
         .then(() => {
@@ -181,6 +186,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0127:Test CVRapi effect - https://wwwtest.dcrgraphs.net:43443/Tool?id=1484617, https://www.dcrgraphs.net:41443/Tool?id=1705078 enter value 39351781", () => {
     it("Test CVRapi effect", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_24")
         .then(() => {
@@ -234,6 +240,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0132:Resources  - click to import effects in a new graph", () => {
     it("click to import effects in a new graph", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_22")
         .then(() => {
@@ -250,6 +257,7 @@ describe("DCR Test Organization ", () => {
 
   describe("0134:Process Classification - admin", () => {
     it("Process Classification - admin", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .visitpage()
         .then(() => {
@@ -351,6 +359,7 @@ describe("DCR Test Organization ", () => {
 
   describe("0135:Process Classification - associate graph with classification (under resources)", () => {
     it("Process Classification - associate graph with classification", function () {
+     Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .visitpage()
         .then(() => {
@@ -375,6 +384,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0136:Process Classification - View classification (https://wwwtest.dcrgraphs.net:43443/ProcessClassification)", () => {
     it("Process Classification - View classification classification", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .visitpage()
         .then(() => {
@@ -402,6 +412,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0137:Effect Administration - try to add packages, remove packages, set parameters, export json", () => {
     it("Effect Administration - try to add packages, remove packages, set parameters, export json", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .visitpage()
         .then(() => {
@@ -428,6 +439,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0140:From Dashboard open 'Instances', i.e. DCR live - no login - does it work", () => {
     it("From Dashboard open 'Instances', i.e. DCR live - no login - does it work", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       console.log("0140A");
       return tests.visitpage().then(() => {
         console.log("0140B");
@@ -437,6 +449,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0141:Open advanced simulator - expense graph 1924013 -  does it open correctly in DCR Live?", () => {
     it("Open advanced simulator", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .visitpage()
         .then(() => {
@@ -449,6 +462,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0154: Check revision history and detail page - https://www.dcrgraphs.net:41443/RevisionDetails?graphId=1924013, export a revision", () => {
     it("Check revision history and detail page", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_1")
        // .then(() => {
@@ -475,6 +489,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0155: Check all effects , https://wwwtest.dcrgraphs.net:43443/Tool?id=1957848, https://www.dcrgraphs.net:41443/Tool?id=2001167", () => {
     it(" Check all effects", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_19")
         .then(() => {
@@ -497,6 +512,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0156: DMN effect fragment - enter 17 + Denmark - result must be Wine and Beer - https://wwwtest.dcrgraphs.net:43443/Tool?id=1953272, https://www.dcrgraphs.net:41443/Tool?id=2001169#", () => {
     it(" DMN effect fragment - enter 17 + Denmark - result must be Wine and Beer", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_20")
         .then(() => {
@@ -542,6 +558,7 @@ describe("DCR Test Organization ", () => {
 
   describe("0175: Verify that Kpis are saved and loaded, also verify mandatory and optional fields (GraphID)", () => {
     it(" Verify that Kpis are saved and loaded, also verify mandatory and optional fields (GraphID)", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_20")
         .then(() => {
@@ -572,6 +589,7 @@ describe("DCR Test Organization ", () => {
         });
     });
     it("0176:Verify that saved kpi's edit functionality works fine.", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_20")
         .then(() => {
@@ -608,6 +626,7 @@ describe("DCR Test Organization ", () => {
         });
     });
     it("0177:Verify that saved kpi's delete functionality works fine.", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       return tests
         .open_the_graph("graph_id_20")
         .then(() => {
@@ -628,6 +647,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0180:Check if design comments are saved and edited against activity.", () => {
     it("Check if design comments are saved and edited against activity.", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       // if (!shouldRunTest('0100')) this.skip(); // Skip this test if TEST_CASE does not match
       return tests
         .visitpage()
@@ -648,6 +668,7 @@ describe("DCR Test Organization ", () => {
   });
   describe("0181:Check if design comments are saved and edited against rule.", () => {
     it("Check if design comments are saved and edited against rule.", function () {
+      Cypress.env('USE_AUTHHUB_LOGIN', false);
       // if (!shouldRunTest('0100')) this.skip(); // Skip this test if TEST_CASE does not match
       return tests
         .visitpage()
