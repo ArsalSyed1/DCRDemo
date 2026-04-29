@@ -40,9 +40,9 @@ import 'cypress-file-upload';
   cy.visit('/'); // or cy.reload(true) if needed
 });*/
 
-after(() => {
+/*after(() => {
   Cypress.env('USE_AUTHHUB_LOGIN', false);
-});
+});*/
 
 afterEach(function () {
   if (this.currentTest.state === 'skipped') {
