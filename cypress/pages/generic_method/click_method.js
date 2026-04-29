@@ -6,26 +6,26 @@ class ClickMethod {
         return cy.get(selector, { timeout: 20000 })
         .should('exist')
         .should('not.be.disabled')
-        .click();
+        .click({ force: true });
     }
     clickElementmultipletime(selector) {
         logStep(`Clicking element multiple times: ${selector}`);
         return cy.get(selector, { timeout: 20000 })
         .should('exist')
-        .click({ multiple: true });
+        .click({ force:true , multiple: true });
     }
     clickElementContainingText(text) {
         logStep(`Clicking element containing text: ${text}`);
         return cy.contains(text, { timeout: 50000 })
         .should('exist')
-        .click();
+        .click({ force: true });
     }
     clickElementWithoutTarget(selector) {
         logStep(`Clicking element without target: ${selector}`);
         return cy.get(selector, { timeout: 20000 })
         .should('exist')
         .invoke("removeAttr", "target")
-        .click();
+        .click({ force: true });
     }
 
     clickElementByAttribute(attribute, value, element) {
@@ -33,7 +33,7 @@ class ClickMethod {
         return cy.get(`[${attribute}="${value}"]`, { timeout: 20000 })
         .should('exist')
         .within(() => {
-                return cy.get(element).click();
+                return cy.get(element).click({ force: true });
             });
     }
 
@@ -43,7 +43,7 @@ class ClickMethod {
         .should('exist')
         .first()
         .within(() => {
-                return cy.get('.btn.btn-primary.executeEvent').click();
+                return cy.get('.btn.btn-primary.executeEvent').click({ force: true });
             }).wait(2000, { log: false });
     }
     clickFirstElement(selector) {
@@ -51,7 +51,7 @@ class ClickMethod {
         return cy.get(selector, { timeout: 20000 })
         .first()
         .should('exist')
-        .click();
+        .click({ force: true });
     }
     clickFirstElementWithoutTarget(selector) {
         logStep(`Clicking first element without target: ${selector}`);
@@ -59,13 +59,13 @@ class ClickMethod {
         .first()
         .should('exist')       
         .invoke("removeAttr", "target")
-        .click();
+        .click({ force: true });
     }
     rightClickElement(selector) {
         logStep(`Right clicking element: ${selector}`);
         return cy.get(selector, { timeout: 20000 })
         .should('exist')
-        .rightclick();
+        .rightclick({ force: true });
     }
 
  clickSimDetailLink(text) {
@@ -83,7 +83,7 @@ class ClickMethod {
             return cy
               .wrap($el)
               .scrollIntoView({ offset: { top: -100, left: 0 } })
-              .click();
+              .click({ force: true });
           } else {
             if (retries > 0) {
               // Try scrolling to the element itself, disabling ensureScrollable if needed
@@ -125,7 +125,7 @@ class ClickMethod {
             .should('exist')
             .should('be.visible')
             .should('not.be.disabled')
-            .click()
+            .click({ force: true })
             .wait(`@${aliasName}`, { timeout: 40000 })
             .then((interception) => {
                 const { request, response } = interception;
