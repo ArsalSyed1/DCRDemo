@@ -7,7 +7,7 @@ import Drop_down from "../../pages/generic_method/Drop_down.js";
 describe("DCR Test Organization ", () => {
   beforeEach(() => {
     cy.clearCookies();
-    cy.loginWithSession(username, password, "DCR Solutions Test");
+    cy.loginWithSession1(username, password, "DCR Solutions Test");
     cy.log(
       "Logged in via session:",
       `${username}-DCR Solutions Test-${Cypress.spec.name}`
