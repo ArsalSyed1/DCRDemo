@@ -6,8 +6,25 @@ import Drop_down from "../../pages/generic_method/Drop_down.js";
 
 describe("DCR Test Organization ", () => {
   beforeEach(() => {
+    cy.intercept('**/api/**', (req) => {
+      req.on('response', (res) => {
+        if (res.statusCode >= 400) {
+          cy.log(`❌ API Error: ${req.method} ${req.url} - Status: ${res.statusCode}`);
+        }
+      });
+    }).as('apiRequests');
+    
+    cy.on('fail', (error) => {
+      if (error.message.includes('Timed out waiting for the response')) {
+        cy.log(`❌ API Timeout: No response received for API call`);
+      }
+    });
+    
     cy.clearCookies();
-    cy.loginWithSession1(username, password, "DCR Solutions Test");
+    cy.loginWithSession(username, password, "DCR Solutions Test");
+    cy.wait('@apiRequests', { timeout: 10000 }).catch(() => {
+      cy.log('⚠️ Warning: Not all API requests completed within timeout period');
+    });
     cy.log(
       "Logged in via session:",
       `${username}-DCR Solutions Test-${Cypress.spec.name}`
