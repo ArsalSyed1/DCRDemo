@@ -20,8 +20,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_21")
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -60,8 +60,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_21")
         .then(() => {
           // Confirm UI ready
-        cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -101,8 +101,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_23")
         .then(() => {
           // Confirm UI ready
-         cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           console.log("0121A");
           //return tests.clickonactivitybox("Activity0");
           return cy.get("path[event-id='Activity0']").click({ force: true });
@@ -128,8 +128,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_15")
         .then(() => {
           // Confirm UI ready
-        cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -146,8 +146,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_16")
         .then(() => {
           // Confirm UI ready
-       cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist'); 
+       cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           console.log("0126A");
           return tests.Click_On_Simulate_Button();
         })
@@ -191,7 +191,7 @@ describe("DCR Test Organization ", () => {
         .then(() => {
           console.log("0126J");
           //return tests.click_on_DMN_icon();
-          return cy.contains('⊞', { timeout: 50000 })
+          return cy.contains('⊞', { timeout: 30000 })
         .should('exist')
         .click({ force: true });
         });
@@ -203,8 +203,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_24")
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           console.log("0127A");
           return tests.Click_On_Simulate_Button();
         })
@@ -259,8 +259,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_22")
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Edit_process_title();
         })
         .then(() => {
@@ -382,8 +382,8 @@ describe("DCR Test Organization ", () => {
         })
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Edit_process_title();
         })
         .then(() => {
@@ -471,8 +471,8 @@ describe("DCR Test Organization ", () => {
         })
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Click_on_advance_simulation_button();
         });
     });
@@ -483,8 +483,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_1")
        .then(() => {
         // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
          console.log("0154A");
           return tests.Click_On_File_tab();
         })
@@ -512,8 +512,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_19")
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Click_On_Simulate_Button();
         })
 
@@ -537,8 +537,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_20")
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           console.log("0156A");
           return tests.Click_On_Simulate_Button();
         })
@@ -585,8 +585,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_20")
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Edit_process_title();
         })
         .then(() => {
@@ -618,8 +618,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_20")
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           console.log("0176A");
           return tests.Edit_process_title();
         })
@@ -657,8 +657,8 @@ describe("DCR Test Organization ", () => {
         .open_the_graph("graph_id_20")
         .then(() => {
           // Confirm UI ready
-      cy.get('#initSimulation', { timeout: 30000 })
-        .should('exist');
+      cy.get('#initSimulation', { timeout: 40000 })
+        .should('exist').should('be.visible');
           return tests.Edit_process_title();
         })
         .then(() => {
