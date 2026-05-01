@@ -8,7 +8,22 @@ const { clear } = require('console');
 
 module.exports = defineConfig({
   projectId: "3m9maq",
+
+  video: true,                      // ✅ ENABLE video recording
+  videosFolder: "cypress/videos",  // ✅ where videos are saved
+  videoCompression: 32,            // ✅ reduce size (optional)
+
+  screenshotOnRunFailure: true,    // already present but keep it
+
   e2e: {
+    chromeWebSecurity: false,
+    experimentalMemoryManagement: true,
+    numTestsKeptInMemory: 2,
+    viewportWidth: 1920,
+    viewportHeight: 1200,
+    pageLoadTimeout: 100000,
+
+    
      chromeWebSecurity: false,
     experimentalMemoryManagement: true,
     numTestsKeptInMemory: 2,

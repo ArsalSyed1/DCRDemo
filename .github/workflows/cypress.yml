@@ -7,10 +7,6 @@ on:
   pull_request:
     branches: 
       - '**'
-  schedule:
-  - cron: '0 19 * * *'  # 12:00 AM PKT
-  - cron: '0 22 * * *'  # 3:00 AM PKT
-  - cron: '0 0 * * *'   # 5:00 AM PKT
 
 jobs:
   cypress-run:
@@ -33,3 +29,11 @@ jobs:
         with:
           name: cypress-screenshots
           path: cypress/screenshots
+
+      # 🎥 Upload videos (ALWAYS)
+      - name: Upload Cypress Videos
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos

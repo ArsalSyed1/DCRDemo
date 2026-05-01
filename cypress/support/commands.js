@@ -163,6 +163,45 @@ Cypress.Commands.add('getOrReload', (selector, timeout = 20000) => {
 });
 
 
+Cypress.Commands.add('monitorApiCalls', () => {
+  cy.intercept('**/api/**', (req) => {
+    const start = Date.now();
+
+    req.on('response', (res) => {
+      const duration = Date.now() - start;
+
+      // Log in terminal (CI)
+      console.log('API CALL:', req.url);
+      console.log('STATUS:', res.statusCode);
+      console.log('DURATION:', duration + 'ms');
+
+      // Cypress UI log
+      Cypress.log({
+        name: 'API',
+        message: `${res.statusCode} ${req.url} (${duration}ms)`,
+        consoleProps: () => ({
+          url: req.url,
+          status: res.statusCode,
+          duration,
+          request: req.body,
+          response: res.body
+        })
+      });
+
+      // 🚨 Highlight slow APIs
+      if (duration > 10000) {
+        console.warn('SLOW API DETECTED:', req.url);
+      }
+
+      // 🚨 Highlight failed APIs
+      if (res.statusCode >= 400) {
+        console.error('FAILED API:', req.url);
+      }
+    });
+  });
+});
+
+
 // import "cypress-drag-drop";
 // import "cypress-file-upload";
 // import "cypress-real-events/support";

@@ -8,6 +8,7 @@ describe("DCR Test Organization ", () => {
   beforeEach(() => {
    
     cy.clearCookies();
+    cy.monitorApiCalls();
     cy.loginWithSession(username, password, "DCR Solutions Test");
     cy.log(
       "Logged in via session:",
