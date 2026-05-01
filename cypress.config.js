@@ -68,9 +68,9 @@ module.exports = defineConfig({
           return null;
         },
 
-        log(message) {
-        console.log(`[CYPRESS LOG]: ${message}`)
-         return null
+        logToTerminal(message) {
+          console.log(message);
+          return null;
         },
 
         async ensureSiteIsReady({ url, timeout = 120000, interval = 5000 }) {
