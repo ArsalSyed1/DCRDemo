@@ -147,6 +147,21 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
   
 });
 
+Cypress.Commands.add('getOrReload', (selector, timeout = 20000) => {
+  cy.get(selector, { timeout })
+    .should('exist')
+    .should('be.visible')
+    .then(null, () => {
+      cy.log(`${selector} not found → Reloading`);
+
+      cy.reload();
+
+      cy.get(selector, { timeout })
+        .should('exist')
+        .should('be.visible');
+    });
+});
+
 
 // import "cypress-drag-drop";
 // import "cypress-file-upload";
