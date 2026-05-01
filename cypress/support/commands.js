@@ -143,7 +143,8 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
 
   );
 
-  cy.visit('/');
+  //cy.visit('/');
+  
 });
 
 
