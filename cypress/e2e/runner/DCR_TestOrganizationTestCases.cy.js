@@ -8,9 +8,7 @@ describe("DCR Test Organization ", () => {
   beforeEach(() => {
    
     cy.clearCookies();
-     cy.intercept('**/api/**').as('apiRequests');
     cy.loginWithSession(username, password, "DCR Solutions Test");
-    cy.wait('@apiRequests');
     cy.log(
       "Logged in via session:",
       `${username}-DCR Solutions Test-${Cypress.spec.name}`
