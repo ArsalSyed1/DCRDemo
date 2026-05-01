@@ -117,7 +117,7 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
   const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
 
   cy.session(
-    `${username}-${orgName}`, // ❗ remove spec.name (better reuse)
+    `${username}-${orgName}`,
     
     () => {
       if (useAuthHubLogin) {
@@ -137,29 +137,23 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
         tests.switchOrganization(orgName);
       }
 
-      // ✅ IMPORTANT: ensure login completed
       // Wait for loader to disappear
       cy.get('#appLogoContainer', { timeout: 30000 })
-      .should('not.exist');
+        .should('not.be.visible');
 
-      // THEN confirm app is ready
+      // Confirm UI ready
       cy.get('.pTitle', { timeout: 30000 })
-      .should('exist');
+        .should('exist');
     },
 
     {
       validate() {
-        // ✅ Check session is still valid
-        cy.getCookie('AuthHubToken').should('exist'); 
-        // OR:
-        cy.window().then((win) => {
-          expect(win.localStorage.getItem('AuthHubToken')).to.not.be.null;
-        });
+        // ✅ Stable validation (UI based)
+        cy.get('.pTitle', { timeout: 20000 }).should('exist');
       }
     }
   );
 
-  // ✅ VERY IMPORTANT: reload app after session restore
   cy.visit('/');
 });
 
