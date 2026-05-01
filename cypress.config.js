@@ -23,7 +23,7 @@ module.exports = defineConfig({
     viewportHeight: 1200,
     pageLoadTimeout: 100000,
 
-    
+
      chromeWebSecurity: false,
     experimentalMemoryManagement: true,
     numTestsKeptInMemory: 2,
@@ -66,6 +66,11 @@ module.exports = defineConfig({
           if (!fs.existsSync(logDir)) fs.mkdirSync(logDir);
           fs.writeFileSync(path.join(logDir, `${sanitized}.log`), logs.join('\n'));
           return null;
+        },
+
+        log(message) {
+        console.log(`[CYPRESS LOG]: ${message}`)
+         return null
         },
 
         async ensureSiteIsReady({ url, timeout = 120000, interval = 5000 }) {

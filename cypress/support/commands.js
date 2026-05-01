@@ -165,40 +165,39 @@ Cypress.Commands.add('getOrReload', (selector, timeout = 20000) => {
 
 Cypress.Commands.add('monitorApiCalls', () => {
   cy.intercept('**/api/**', (req) => {
-    const start = Date.now();
+    const start = Date.now()
 
     req.on('response', (res) => {
-      const duration = Date.now() - start;
+      const duration = Date.now() - start
 
-      // Log in terminal (CI)
-      console.log('API CALL:', req.url);
-      console.log('STATUS:', res.statusCode);
-      console.log('DURATION:', duration + 'ms');
+      const message = `API: ${req.url} → ${res.statusCode} (${duration}ms)`
 
-      // Cypress UI log
+      // CI visible log (BEST)
+      cy.task('log', message)
+
+      // fallback console
+      console.log(message)
+
+      // Cypress UI log (only local UI)
       Cypress.log({
         name: 'API',
-        message: `${res.statusCode} ${req.url} (${duration}ms)`,
+        message,
         consoleProps: () => ({
           url: req.url,
           status: res.statusCode,
-          duration,
-          request: req.body,
-          response: res.body
+          duration
         })
-      });
+      })
 
-      // 🚨 Highlight slow APIs
       if (duration > 10000) {
-        console.warn('SLOW API DETECTED:', req.url);
+        cy.task('log', `SLOW API: ${req.url}`)
       }
 
-      // 🚨 Highlight failed APIs
       if (res.statusCode >= 400) {
-        console.error('FAILED API:', req.url);
+        cy.task('log', `FAILED API: ${req.url}`)
       }
-    });
-  });
+    })
+  })
 });
 
 
