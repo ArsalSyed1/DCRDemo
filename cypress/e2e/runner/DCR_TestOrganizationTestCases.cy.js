@@ -8,7 +8,7 @@ describe("DCR Test Organization ", () => {
   beforeEach(() => {
    
     cy.clearCookies();
-    cy.monitorApiCalls();
+    
     cy.loginWithSession(username, password, "DCR Solutions Test");
     cy.log(
       "Logged in via session:",
@@ -20,6 +20,7 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_21")
         .then(() => {
+          cy.monitorApiCalls();
           // Confirm UI ready
          cy.getOrReload('#initSimulation');
         })
@@ -58,6 +59,7 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_21")
         .then(() => {
+          cy.monitorApiCalls();
           // Confirm UI ready
       cy.getOrReload('#initSimulation');
           return tests.Click_On_Simulate_Button();
