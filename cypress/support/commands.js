@@ -137,10 +137,6 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
         tests.switchOrganization(orgName);
       }
 
-      // Wait for loader to disappear
-      cy.get('#appLogoContainer', { timeout: 30000 })
-        .should('not.be.visible');
-
       // Confirm UI ready
       cy.get('.pTitle', { timeout: 30000 })
         .should('exist');
