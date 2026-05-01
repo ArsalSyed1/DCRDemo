@@ -20,7 +20,6 @@ describe("testing 4 ", () => {
       return tests
         .open_the_graph("graph_id_9")
         .then(() => {
-          cy.reload(true);
           return tests.clickonapp();
         })
         .then(() => {
@@ -43,7 +42,6 @@ describe("testing 4 ", () => {
       return tests
         .open_the_graph("graph_id_9")
         .then(() => {
-          cy.reload(true);
           return tests.clickonapp();
         })
         .then(() => {
@@ -61,7 +59,6 @@ describe("testing 4 ", () => {
       return tests
         .open_the_graph("graph_id_10")
         .then(() => {
-          cy.reload(true);
           return tests.Click_On_File_tab();
         })
         .then(() => {
@@ -81,7 +78,6 @@ describe("testing 4 ", () => {
       return tests
         .open_the_graph("graph_id_11")
         .then(() => {
-          cy.reload(true);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -113,7 +109,6 @@ describe("testing 4 ", () => {
       return tests
         .visitpage()
         .then(() => {
-          cy.reload(true);
           return tests.createprocesspage();
         })
         .then(() => {
@@ -127,7 +122,6 @@ describe("testing 4 ", () => {
       return tests
         .visitpage()
         .then(() => {
-          cy.reload(true);
           return tests.createprocesspage();
         })
         .then(() => {
@@ -144,7 +138,6 @@ describe("testing 4 ", () => {
       return tests
         .visitpage()
         .then(() => {
-          cy.reload(true);
           return tests.createprocesspage();
         })
         .then(() => {
@@ -166,7 +159,6 @@ describe("testing 4 ", () => {
     it("should perform search", function () {
       // if (!shouldRunTest('0023')) this.skip(); // Skip this test if TEST_CASE does not match
       return tests.visitpage().then(() => {
-        cy.reload(true);
         return tests.genericSearchTest();
       });
     });
@@ -185,7 +177,6 @@ describe("testing 4 ", () => {
       return tests
         .visitpage()
         .then(() => {
-          cy.reload(true);
           return tests.onlySearch();
         })
         .then(() => {
@@ -199,7 +190,6 @@ describe("testing 4 ", () => {
       return tests
         .visitpage()
         .then(() => {
-          cy.reload(true);
           return tests.onlySearch();
         })
         .then(() => {

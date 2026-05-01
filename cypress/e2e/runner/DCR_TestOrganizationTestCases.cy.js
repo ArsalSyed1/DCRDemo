@@ -19,6 +19,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_21")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -56,6 +59,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_21")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -94,6 +100,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_23")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           console.log("0121A");
           //return tests.clickonactivitybox("Activity0");
           return cy.get("path[event-id='Activity0']").click({ force: true });
@@ -118,6 +127,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_15")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
         .then(() => {
@@ -133,6 +145,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_16")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           console.log("0126A");
           return tests.Click_On_Simulate_Button();
         })
@@ -187,6 +202,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_24")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           console.log("0127A");
           return tests.Click_On_Simulate_Button();
         })
@@ -240,6 +258,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_22")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.Edit_process_title();
         })
         .then(() => {
@@ -256,6 +277,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.ClickonProfileIcon();
         })
         .then(() => {
@@ -363,6 +387,9 @@ describe("DCR Test Organization ", () => {
           return tests.open_the_graph("graph_id_10");
         })
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.Edit_process_title();
         })
         .then(() => {
@@ -384,6 +411,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.ClickonProfileIcon();
         })
         .then(() => {
@@ -411,6 +441,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           console.log("0137A");
           return tests.ClickonProfileIcon();
         })
@@ -436,6 +469,9 @@ describe("DCR Test Organization ", () => {
     it("From Dashboard open 'Instances', i.e. DCR live - no login - does it work", function () {
       console.log("0140A");
       return tests.visitpage().then(() => {
+        cy.wait(2000);
+        cy.reload(true);
+        cy.wait(2000);
         console.log("0140B");
         return tests.Click_on_Instances_button();
       });
@@ -446,6 +482,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.open_the_graph("graph_id_1");
         })
         .then(() => {
@@ -462,6 +501,9 @@ describe("DCR Test Organization ", () => {
         //  return tests.Click_On_File_tab();
       //  })
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           console.log("0154B");
           return tests.Click_On_Revision_History();
         })
@@ -484,6 +526,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_19")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.Click_On_Simulate_Button();
         })
 
@@ -506,6 +551,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_20")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           console.log("0156A");
           return tests.Click_On_Simulate_Button();
         })
@@ -551,6 +599,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_20")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.Edit_process_title();
         })
         .then(() => {
@@ -581,6 +632,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_20")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           console.log("0176A");
           return tests.Edit_process_title();
         })
@@ -617,6 +671,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .open_the_graph("graph_id_20")
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.Edit_process_title();
         })
         .then(() => {
@@ -638,6 +695,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           return tests.createprocesspage();
         })
         .then(() => {
@@ -658,6 +718,9 @@ describe("DCR Test Organization ", () => {
       return tests
         .visitpage()
         .then(() => {
+          cy.wait(2000);
+          cy.reload(true);
+          cy.wait(2000);
           console.log("0181A");
           return tests.createprocesspage();
         })
