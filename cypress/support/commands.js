@@ -116,8 +116,7 @@ Cypress.Commands.add("loginWithSessionx", (username, password, orgName) => {
 Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
   const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
 
-  cy.session(
-    `${username}-${orgName}`,
+  cy.session(`${username}-${orgName}-${Cypress.spec.name}`,
     
     () => {
       if (useAuthHubLogin) {
@@ -140,14 +139,8 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
       // Confirm UI ready
       cy.get('.pTitle', { timeout: 30000 })
         .should('exist');
-    },
-
-    {
-      validate() {
-        // ✅ Stable validation (UI based)
-        cy.get('.pTitle', { timeout: 20000 }).should('exist');
-      }
     }
+
   );
 
   cy.visit('/');
