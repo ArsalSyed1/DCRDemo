@@ -61,7 +61,7 @@ Cypress.Commands.add("logMemoryUsage", () => {
 
 
 
-Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
+Cypress.Commands.add("loginWithSessionx", (username, password, orgName) => {
   const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
   cy.log("Using AuthHub login:", useAuthHubLogin);
   console.log('THE_USE_AUTHHUB_LOGIN', useAuthHubLogin);
@@ -112,6 +112,56 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
 });
 
 
+
+Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
+  const useAuthHubLogin = Cypress.env("USE_AUTHHUB_LOGIN");
+
+  cy.session(
+    `${username}-${orgName}`, // ❗ remove spec.name (better reuse)
+    
+    () => {
+      if (useAuthHubLogin) {
+        tests.visitpage();
+        tests.Auth_hub_Username(username);
+        tests.Auth_hub_Continue();
+        tests.Auth_hub_Password(password);
+        tests.Auth_hub_LoginButton();
+        tests.switchOrganization(orgName);
+      } else {
+        tests.visitpage();
+        tests.Username(username);
+        tests.VerifyUsername(username);
+        tests.Password(password);
+        tests.VerifyPassword(password);
+        tests.ClickonLoginButton();
+        tests.switchOrganization(orgName);
+      }
+
+      // ✅ IMPORTANT: ensure login completed
+      // Wait for loader to disappear
+      cy.get('#appLogoContainer', { timeout: 30000 })
+      .should('not.exist');
+
+      // THEN confirm app is ready
+      cy.get('.pTitle', { timeout: 30000 })
+      .should('exist');
+    },
+
+    {
+      validate() {
+        // ✅ Check session is still valid
+        cy.getCookie('AuthHubToken').should('exist'); 
+        // OR:
+        cy.window().then((win) => {
+          expect(win.localStorage.getItem('AuthHubToken')).to.not.be.null;
+        });
+      }
+    }
+  );
+
+  // ✅ VERY IMPORTANT: reload app after session restore
+  cy.visit('/');
+});
 
 
 // import "cypress-drag-drop";
