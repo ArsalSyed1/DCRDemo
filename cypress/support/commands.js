@@ -167,7 +167,7 @@ Cypress.Commands.add('monitorApiCalls', () => {
   cy.intercept('**/api/**').as('api');
 
   cy.wrap(null).then(() => {
-    cy.wait('@apiss', { timeout: 60000 }).then((interception) => {
+    cy.wait('@api', { timeout: 60000 }).then((interception) => {
       const { request, response } = interception;
 
       const duration = response?.duration || 'N/A';
