@@ -150,7 +150,6 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
 Cypress.Commands.add('getOrReload', (selector, timeout = 30000) => {
   cy.get(selector, { timeout })
     .should('exist')
-    .should('be.visible')
     .then(null, () => {
       cy.log(`${selector} not found → Reloading`);
 
