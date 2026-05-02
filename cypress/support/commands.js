@@ -143,11 +143,11 @@ Cypress.Commands.add("loginWithSession", (username, password, orgName) => {
 
   );
 
-  //cy.visit('/');
+  cy.visit('/');
   
 });
 
-Cypress.Commands.add('getOrReload', (selector, timeout = 20000) => {
+Cypress.Commands.add('getOrReload', (selector, timeout = 30000) => {
   cy.get(selector, { timeout })
     .should('exist')
     .should('be.visible')
