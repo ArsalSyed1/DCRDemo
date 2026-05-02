@@ -167,14 +167,14 @@ Cypress.Commands.add('monitorApiCalls', () => {
   cy.intercept('**/api/**').as('api');
 
   cy.wrap(null).then(() => {
-    cy.wait('@api', { timeout: 60000 }).then((interception) => {
+    cy.wait('@apiss', { timeout: 60000 }).then((interception) => {
       const { request, response } = interception;
 
       const duration = response?.duration || 'N/A';
 
       const logMessage = `API: ${response?.statusCode} ${request.url} (${duration}ms)`;
 
-      console.log(logMessage); // ✅ WILL appear in CI
+      console.log(logMessage); 
     });
   });
 });

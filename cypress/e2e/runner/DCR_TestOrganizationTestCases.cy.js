@@ -7,7 +7,7 @@ import Drop_down from "../../pages/generic_method/Drop_down.js";
 describe("DCR Test Organization ", () => {
   beforeEach(() => {
    
-    cy.clearCookies();
+   // cy.clearCookies();
     
     cy.loginWithSession(username, password, "DCR Solutions Test");
     cy.log(
